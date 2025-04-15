@@ -18,7 +18,7 @@ export function HeroCards() {
   const [shows, setShows] = useState<any[]>([]);
 
   React.useEffect(() => {
-    plugin.current = Autoplay({ delay: 2000, stopOnInteraction: true });
+    plugin.current = Autoplay({ delay: 2000, stopOnInteraction: false });
     fetchTrendingTV().then(setShows);
   }, []);
 
@@ -30,8 +30,8 @@ export function HeroCards() {
           loop: true,
         }}
         plugins={plugin.current ? [plugin.current] : []}
-        onMouseEnter={() => plugin.current?.stop()}
-        onMouseLeave={() => plugin.current?.reset()}
+        //onMouseEnter={() => plugin.current?.stop()}
+        //onMouseLeave={() => plugin.current?.reset()}
         className="w-full overflow-hidden"
       >
         <CarouselContent className=" ">
